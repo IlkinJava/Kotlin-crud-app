@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("Employees")
-class EmployeeController(private var service: EmployeeService) {
+class EmployeeController(private val service: EmployeeService) {
 
     @GetMapping
     fun getEmployees(): List<Employee> = service.getEmployees()

@@ -6,7 +6,7 @@ import com.example.kotlin.crud.repository.EmployeeRepository
 import org.springframework.stereotype.Service
 
 @Service
-class EmployeeService(private var repository: EmployeeRepository) {
+class EmployeeService(private val repository: EmployeeRepository) {
     fun updateEmployee(id: Int, employee: Employee): Employee =
             if (id == employee.id) repository.save(employee) else throw WrongDataException("Id is not correct")
 
