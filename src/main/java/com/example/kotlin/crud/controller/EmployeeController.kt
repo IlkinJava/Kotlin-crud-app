@@ -3,6 +3,7 @@ package com.example.kotlin.crud.controller
 import com.example.kotlin.crud.model.Employee
 import com.example.kotlin.crud.service.EmployeeService
 import org.springframework.web.bind.annotation.*
+import java.util.*
 
 @RestController
 @RequestMapping("Employees")
@@ -22,4 +23,6 @@ class EmployeeController(private val service: EmployeeService) {
     @DeleteMapping("/{id}")
     fun deleteEmployee(@PathVariable id: Int) = service.deleteEmployee(id)
 
+    @GetMapping("/{id}")
+    fun findById(@PathVariable id: Int): Optional<Employee> = service.findById(id)
 }
